@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='./styles/fonts.css'>
+    <link rel="stylesheet" href='./styles/index.css'>
+    <title>ToDo List</title>
+</head>
+<body>
+    <root>
+        <header>
+            <time>00</time>
+            <time>0</time>
+            <h1>TODO APP</h1>
+        </header>
+        <main>
+            <div id="todo-bar">
+                <ul class="todo-list">
+                    <div class="todo-title">
+                        <span class="title-area-main">TODO TITLE</span>
+                        <span class="detail-area-main">TODO SUBTITLE</span>
+                    </div>
+                    <div class="todo-buttons">
+                        <button class="todo-edit" onclick="location.href='./edit.html'" type="button"></button>
+                        <button class="todo-delete"></button>
+                        <button class="todo-done"></button>
+                    </div>
+                </ul>
+            </div>
+            <button 
+            class="todo-add" 
+            onclick="location.href='./addTask.html'" 
+            type="button">+</button>
+        </main>
+        <footer>
+            <div class="todo-all">
+                <image src="./assets/Playlist.png"></image>
+                <p>All</p>
+            </div>
+            <div class="todo-completed">
+                <image src="./assets/Tick.png"
+                onclick="location.href='./completedTasks.html'" 
+                type="button"></image>
+                <p>Completed</p>
+            </div>
+        </footer>
+    </root>
+</body>
+<script src="./index.js"></script>
+</html>
