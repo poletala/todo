@@ -45,24 +45,32 @@ let todoTitleMain = document.querySelector('.title-area-main');
 let todoDetailMain = document.querySelector('.detail-area-main');
 let toAddTitle = document.querySelector('.title-area');
 let toAddDetail = document.querySelector('.detail-area');
-let todo = document.querySelector('.todo-list')
-
-/* записываем данные туду из локал сторэдж */
-function init() {
-    const fromStorageTitle = localStorage.getItem('todo-title');
-    const fromStorageDetail = localStorage.getItem('todo-detail');
-    if (fromStorageDetail && fromStorageTitle) {
-        todo.innerHTML =  `<li class="todo-title">
-        <span class="title-area-main">${fromStorageTitle}</span>
-        <span class="detail-area-main">${fromStorageDetail}</span>
-        </li>`;
-    }
-}
+let todo = document.querySelector('#todo-bar')
 
 /*сохраняем данные, внесенные пользователем, в локал сторэдж*/
 function save() {
     localStorage.setItem('todo-title', toAddTitle.value);
     localStorage.setItem('todo-detail', toAddDetail.value);
+}
+
+/* записываем данные туду из локал сторэдж */
+function init() {
+    let fromStorageTitle = localStorage.getItem('todo-title');
+    let fromStorageDetail = localStorage.getItem('todo-detail');
+    // if (fromStorageDetail && fromStorageTitle) {
+        let todoHTML = `<li class="todo-list">
+        <div class="todo-title">
+            <span class="title-area-main">${fromStorageTitle}</span>
+            <span class="detail-area-main">${fromStorageDetail}</span>
+        </div>
+        <div class="todo-buttons">
+            <button class="todo-edit" onclick="location.href='./edit.html'" type="button"></button>
+            <button class="todo-delete"></button>
+            <button class="todo-done"></button>
+        </div>
+    </li>`;
+        todo.insertAdjacentHTML('beforeend', todoHTML) 
+    // }
 }
 
 
@@ -72,3 +80,5 @@ addButton.addEventListener('click', () => {
     save()
     init()
 })
+
+let toDoListArray = [];

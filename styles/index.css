@@ -218,3 +218,6 @@ textarea:hover {
     border: 2px solid rgb(170, 173, 249);
     transition: 0.7s;
 }
+ul {
+    padding-left: 0;
+}
