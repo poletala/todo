@@ -37,6 +37,9 @@ let arrTasks = []
 
 /* Функции */
 
+window.onload = listMain
+
+
 function listMain() {
     let storedData = localStorage.getItem('todoList')
         if (storedData) {
@@ -86,6 +89,7 @@ addButton.addEventListener('click', () => {
     if (!!storedData && storedData.length !== 0) {
     addTaskToLocalStorage()
     clearFields()
+    
     }
     else {
         let arrTasks = [{
@@ -93,12 +97,14 @@ addButton.addEventListener('click', () => {
             detail: inputDetail.value}];
         clearFields()
         localStorage.setItem('todoList', JSON.stringify(arrTasks));
+       
     }
-    return
+    // return
 })
 
 
-listMain()
+
+
 
 
 
