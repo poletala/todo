@@ -27,18 +27,11 @@ getCurrentTimeDate();
 
 /* кнопки и переменные */
 
-let addButton = document.querySelector('.add-task-btn')
-let mainPageButton = document.querySelector('.back-btn')
-
-let inputTitle = document.querySelector('.title-area')
-let inputDetail = document.querySelector('.detail-area')
 let ul = document.querySelector('#todo-bar')
-let arrTasks = []
 
 /* Функции */
 
-window.onload = listMain
-
+window.onload = listMain()
 
 function listMain() {
     let storedData = localStorage.getItem('todoList')
@@ -56,7 +49,7 @@ function listMain() {
                         <button class="todo-done"></button>
                     </div>
                     </li>`;
-                    ul.insertAdjacentHTML(beforeend,taskHTML)
+                    ul.insertAdjacentHTML('beforeend',taskHTML)
               }
           } else {
             console.log('Data not found in local storage')
@@ -64,82 +57,3 @@ function listMain() {
           console.log(storedData)
           console.log( JSON.parse(storedData))
 }
-    
-function clearFields() {
-    inputTitle.value = '';
-    inputDetail.value = '';
-}
-
-function addTaskToLocalStorage() {
-    let todoListItem = {
-        title: inputTitle.value,
-        detail: inputDetail.value
-    }
-    console.log(todoListItem)
-    arrTasks.push(todoListItem)
-
-    localStorage.setItem('todoList', JSON.stringify(arrTasks));
-    console.log(arrTasks)
-}
-
-
-
-addButton.addEventListener('click', () => {
-    let storedData = JSON.parse(localStorage.getItem('todoList'));
-    if (!!storedData && storedData.length !== 0) {
-    addTaskToLocalStorage()
-    clearFields()
-    
-    }
-    else {
-        let arrTasks = [{
-            title: inputTitle.value,
-            detail: inputDetail.value}];
-        clearFields()
-        localStorage.setItem('todoList', JSON.stringify(arrTasks));
-       
-    }
-    // return
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let todoList = [
-//     {title:1},
-//     {title:2}
-// ];
-// function getTodoList(alltasks) {
-//     const liElements = alltasks.map((elem) => {
-//         const li = document.createElement('li');
-//         li.classList.add('.todo-list');
-//         li.append(elem.title);
-//         console.log('li', li)
-//         return li
-//     })
-//     return ul.append(...liElements)
-// }
-// getTodoList(todoList)
