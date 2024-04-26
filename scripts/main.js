@@ -35,9 +35,13 @@ window.onload = listMain
 
 function listMain() {
     let storedData = localStorage.getItem('todoList')
+    
         if (storedData) {
             let todoListTask = JSON.parse(storedData)
+           
+            
             for (var i in storedData) {
+               
                 let taskHTML = `<li class="todo-list">
                     <div class="todo-title">
                         <span class="title-area-main">${todoListTask[i].title}</span>

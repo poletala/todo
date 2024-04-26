@@ -43,10 +43,11 @@ function clearFields() {
 }
 
 function addTaskToLocalStorage() {
-    let arrTasks = []
+    let arrTasks = [];
     let todoListItem = {
         title: inputTitle.value,
-        detail: inputDetail.value
+        detail: inputDetail.value,
+        id: Math.random().toString(16).slice(2)
     }
     // console.log(todoListItem)
 
@@ -59,16 +60,19 @@ function addTaskToLocalStorage() {
 
 addButton.addEventListener('click', () => {
     let storedData = JSON.parse(localStorage.getItem('todoList'));
-    console.log(storedData)
+    // console.log(storedData)
     if (storedData === null) {
         addTaskToLocalStorage()
         clearFields()
     }
     else {
+     
         let todoListItem = {
             title: inputTitle.value,
-            detail: inputDetail.value
+            detail: inputDetail.value,
+            id: Math.random().toString(16).slice(2)
         };
+    
         storedData.push(todoListItem)
         localStorage.setItem('todoList', JSON.stringify(storedData));
         clearFields()
@@ -77,22 +81,6 @@ addButton.addEventListener('click', () => {
     return
 })
 
-
-// addButton.addEventListener('click', () => {
-//     let storedData = JSON.parse(localStorage.getItem('todoList'));
-//     if (storedData) {
-//         let arrTasks = [{
-//             title: inputTitle.value,
-//             detail: inputDetail.value}];
-//         localStorage.setItem('todoList', JSON.stringify(arrTasks));
-//         clearFields()
-//     }
-//     else {
-//         addTaskToLocalStorage()
-//         clearFields()
-//     }
-//     // return
-// })
 
 
 
