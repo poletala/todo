@@ -31,13 +31,13 @@ let ul = document.querySelector('#todo-bar')
 
 /* Функции */
 
-window.onload = listMain()
+window.onload = listMain
 
 function listMain() {
     let storedData = localStorage.getItem('todoList')
         if (storedData) {
             let todoListTask = JSON.parse(storedData)
-            for (i=0;i++;i<todoListTask.length) {
+            for (var i in storedData) {
                 let taskHTML = `<li class="todo-list">
                     <div class="todo-title">
                         <span class="title-area-main">${todoListTask[i].title}</span>
@@ -49,11 +49,12 @@ function listMain() {
                         <button class="todo-done"></button>
                     </div>
                     </li>`;
-                    ul.insertAdjacentHTML('beforeend',taskHTML)
+                    ul.insertAdjacentHTML('beforeend',taskHTML) 
               }
           } else {
-            console.log('Data not found in local storage')
+            console.log('No data in local storage')  
           }
-          console.log(storedData)
-          console.log( JSON.parse(storedData))
+        //   console.log(storedData)
+        //   console.log( JSON.parse(storedData))
+        return
 }

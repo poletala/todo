@@ -32,7 +32,7 @@ let addButton = document.querySelector('.add-task-btn')
 let inputTitle = document.querySelector('.title-area')
 let inputDetail = document.querySelector('.detail-area')
 
-let arrTasks = []
+
 
 /* Функции */
 
@@ -43,36 +43,56 @@ function clearFields() {
 }
 
 function addTaskToLocalStorage() {
+    let arrTasks = []
     let todoListItem = {
         title: inputTitle.value,
         detail: inputDetail.value
     }
-    console.log(todoListItem)
+    // console.log(todoListItem)
 
     arrTasks.push(todoListItem)
 
     localStorage.setItem('todoList', JSON.stringify(arrTasks));
-    console.log(arrTasks)
+    // console.log(arrTasks)
 }
 
 
 addButton.addEventListener('click', () => {
     let storedData = JSON.parse(localStorage.getItem('todoList'));
-    if (storedData.length !== 0) {
+    console.log(storedData)
+    if (storedData === null) {
         addTaskToLocalStorage()
         clearFields()
     }
     else {
-        let arrTasks = [{
+        let todoListItem = {
             title: inputTitle.value,
-            detail: inputDetail.value}];
-        localStorage.setItem('todoList', JSON.stringify(arrTasks));
+            detail: inputDetail.value
+        };
+        storedData.push(todoListItem)
+        localStorage.setItem('todoList', JSON.stringify(storedData));
         clearFields()
+        
     }
-    // return
+    return
 })
 
 
+// addButton.addEventListener('click', () => {
+//     let storedData = JSON.parse(localStorage.getItem('todoList'));
+//     if (storedData) {
+//         let arrTasks = [{
+//             title: inputTitle.value,
+//             detail: inputDetail.value}];
+//         localStorage.setItem('todoList', JSON.stringify(arrTasks));
+//         clearFields()
+//     }
+//     else {
+//         addTaskToLocalStorage()
+//         clearFields()
+//     }
+//     // return
+// })
 
 
 
