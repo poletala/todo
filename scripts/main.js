@@ -49,7 +49,7 @@ function listMain() {
                     </div>
                     <div class="todo-buttons">
                         <button class="todo-edit" onclick="location.href='./edit.html'" type="button"></button>
-                        <button class="todo-delete"></button>
+                        <button class="todo-delete" onclick='deleteTask(this)'></button>
                         <button class="todo-done"></button>
                     </div>
                     </li>`;

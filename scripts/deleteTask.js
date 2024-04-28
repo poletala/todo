@@ -3,15 +3,19 @@
 let deleteButton = document.querySelector('.todo-delete')
 let storedData = JSON.parse(localStorage.getItem('todoList'))
 
-console.log(storedData)
+// console.log(storedData)
 
 
-// deleteButton.addEventListener('click', () => {
-//     let newArray =
-//     localStorage.setItem('todoList', JSON.stringify(newArray));
-// })
+function deleteTask(elem) {
+    // console.log(elem.parentNode.parentNode.children[0].children[0].innerHTML)
+    elem.parentNode.parentNode.remove();
+    for (var i in storedData) {
+        if (elem.parentNode.parentNode.children[0].children[0].innerHTML === storedData[i].title) {
+            storedData.splice(i, 1);
+            localStorage.setItem('todoList', JSON.stringify(storedData));
+        }
+    }
+}
 
    
-
-
 
