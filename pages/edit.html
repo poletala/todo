@@ -11,6 +11,7 @@
     <root>
         <header>
             <time>00</time>
+            <time>00</time>
             <h1>
                 <button 
                     class="back-btn" 
@@ -21,10 +22,19 @@
             </h1>
         </header>
         <content>
-            <textarea placeholder="Title" rows="1" maxlength="40" ></textarea>
-            <textarea placeholder="Detail" rows="2"></textarea>
+            <textarea 
+            placeholder="Title" 
+            rows="1" 
+            maxlength="40" 
+            class="edited-title" 
+            name="title-edit"></textarea>
+            <textarea 
+            placeholder="Detail" 
+            rows="2" 
+            class="edited-detail"
+            name="detail-edit"></textarea>
             <div class="edit-buttons">
-                <button class="update-button" onclick="location.href='./index.html'" type="button">
+                <button class="update-button" onclick="updateTask(this)" type="button">
                     Update
                 </button>
                 <button class="cancel-button" onclick="location.href='./index.html'" type="button">
@@ -36,5 +46,5 @@
     </root>
     
 </body>
-<!-- <script src="./index.js"></script> -->
+<script src="../scripts/editTask.js"></script>
 </html>

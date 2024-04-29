@@ -42,6 +42,8 @@ function clearFields() {
     inputDetail.value = '';
 }
 
+
+//                                     Еще не ставила проверки на введенные значения
 function addTaskToLocalStorage() {
     let arrTasks = [];
     let todoListItem = {

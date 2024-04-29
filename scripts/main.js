@@ -48,7 +48,7 @@ function listMain() {
                         <span class="detail-area-main">${todoListTask[i].detail}</span>
                     </div>
                     <div class="todo-buttons">
-                        <button class="todo-edit" onclick="location.href='./edit.html'" type="button"></button>
+                        <button class="todo-edit" onclick="editTask(this)" type="button"></button>
                         <button class="todo-delete" onclick='deleteTask(this)'></button>
                         <button class="todo-done"></button>
                     </div>
