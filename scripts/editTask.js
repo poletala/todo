@@ -13,7 +13,7 @@ let dataStored = JSON.parse(localStorage.getItem('todoList'))
 
 
 function editTask(elem) {
-    location.replace("./edit.html"); 
+    location.replace("./pages/edit.html"); 
  /*                                              здесь нужна какая-то проверка введено ли что-либо? иначе сразу идет удаление*/
     for (var i in dataStored) {
         console.log(elem.parentNode.parentNode.children[0].children[0])
@@ -42,5 +42,5 @@ function updateTask(elem) {
     /*                                              Данная функция не работает, если задач более одной */
     editTask(elem);
     editedTaskLocalStorage() 
-    location.replace("./index.html");
+    location.replace("../index.html");
 }
