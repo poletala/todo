@@ -80,7 +80,7 @@ addButton.addEventListener('click', () => {
         clearFields()
         
     }
-    return
+    location.replace("../index.html");
 })
 
 

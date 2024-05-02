@@ -38,18 +38,20 @@ function listMain() {
     
         if (storedData) {
             let todoListTask = JSON.parse(storedData)
+            console.log(todoListTask)
            
             
-            for (var i in storedData) {
+            // for (var i in storedData) {
+            for (let i=0; i< todoListTask.length;i++) {
                
-                let taskHTML = `<li class="todo-list">
+                let taskHTML = `<li class="todo-list" id='${todoListTask[i].id}'>
                     <div class="todo-title">
                         <span class="title-area-main">${todoListTask[i].title}</span>
                         <span class="detail-area-main">${todoListTask[i].detail}</span>
                     </div>
                     <div class="todo-buttons">
                         <button class="todo-edit" onclick="editTask(this)" type="button"></button>
-                        <button class="todo-delete" onclick='deleteTask(this)'></button>
+                        <button class="todo-delete" onclick='deleteTask1(this)'></button>
                         <button class="todo-done"></button>
                     </div>
                     </li>`;
