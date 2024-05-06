@@ -1,7 +1,7 @@
 /* Buttons */
 
-let deleteButton = document.querySelector('.todo-delete')
-let storedData = JSON.parse(localStorage.getItem('todoList'))
+let deleteButton = document.querySelector('.todo-delete')  
+
 
 // console.log(storedData)
 
@@ -17,10 +17,12 @@ let storedData = JSON.parse(localStorage.getItem('todoList'))
 //     }
 // }
 
+//                                                ф-ция удаления элемента 
 //                                       Вторая версия (Поиск id через .closest)
 function deleteTask1(elem) {
+    let storedData = JSON.parse(localStorage.getItem('todoList'))
     // console.log(elem.closest('.todo-list').id)
-    elem.closest('.todo-list').remove();
+    elem.closest('.todo-list').remove(); 
     for (var i in storedData) {
         if (elem.closest('.todo-list').id === storedData[i].id) {
             storedData.splice(i, 1);

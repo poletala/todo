@@ -1,55 +1,52 @@
 // Задаем время и дату
 const getCurrentTimeDate = () => {
     let currentTimeDate = new Date();
-
-    let month = new Array();
-    month = ["Jan", "Feb", "Mar", "Apr", "May",  "Jun",  "Jul",  "Aug",  "Sep", "Oct", "Nov", "Dec"]
-
-let hours   =  currentTimeDate.getHours();
-let minutes =  currentTimeDate.getMinutes();
-minutes = minutes < 10 ? '0'+minutes : minutes;
-
-let currentTime = `${hours}:${minutes}`;
-
-let currentDate  = currentTimeDate.getDate();
-let currentMonth = month[currentTimeDate.getMonth()];
-let CurrentYear = currentTimeDate.getFullYear();
-
-let fullDate = `${currentDate} ${currentMonth}, ${CurrentYear}`;
-
-document.querySelector("time").innerHTML = currentTime;
-document.querySelectorAll("time")[1].innerHTML = fullDate;
-
-setTimeout(getCurrentTimeDate, 500);
+    let month =  ["Jan", "Feb", "Mar", "Apr", "May",  "Jun",  "Jul",  "Aug",  "Sep", "Oct", "Nov", "Dec"]
+    let hours   =  currentTimeDate.getHours();
+    let minutes =  currentTimeDate.getMinutes();
+    minutes = minutes < 10 ? '0'+minutes : minutes;
+    let currentTime = `${hours}:${minutes}`;
+    let currentDate  = currentTimeDate.getDate();
+    let currentMonth = month[currentTimeDate.getMonth()];
+    let CurrentYear = currentTimeDate.getFullYear();
+    let fullDate = `${currentDate} ${currentMonth}, ${CurrentYear}`;
+    document.querySelector("time").innerHTML = currentTime;
+    document.querySelectorAll("time")[1].innerHTML = fullDate;
+    setTimeout(getCurrentTimeDate, 500);
 }
-
-getCurrentTimeDate();
+getCurrentTimeDate(); //выполнение ф-ции, ктр отображает время и дату
 
 /* кнопки и переменные */
 
 let addButton = document.querySelector('.add-task-btn')
-
 let inputTitle = document.querySelector('.title-area')
 let inputDetail = document.querySelector('.detail-area')
 
 
-
 /* Функции */
 
-
-function clearFields() {
-    inputTitle.value = '';
-    inputDetail.value = '';
+//ф-ция проверки 
+ //это только начало ф-ции проверки 
+ // почему при пустом поле ф-ция возвращает true? 
+function checkInputs() {
+    if (inputTitle.value === '') {
+        alert ('Поле не должно быть пустым');
+        console.error('false') 
+    } else 
+    {
+        console.log('true') 
+    }
 }
 
+//ф-ция добавления первого дела в local storage 
 
-//                                     Еще не ставила проверки на введенные значения
 function addTaskToLocalStorage() {
     let arrTasks = [];
     let todoListItem = {
         title: inputTitle.value,
         detail: inputDetail.value,
-        id: Math.random().toString(16).slice(2)
+        id: Math.random().toString(16).slice(2),
+        complete: false
     }
     // console.log(todoListItem)
 
@@ -59,28 +56,25 @@ function addTaskToLocalStorage() {
     // console.log(arrTasks)
 }
 
+//ф-ция добавления дела в local storage при нажатии кнопки ADD
 
 addButton.addEventListener('click', () => {
+    checkInputs()
     let storedData = JSON.parse(localStorage.getItem('todoList'));
-    // console.log(storedData)
-    if (storedData === null) {
+    if (storedData.length === 0) { //если local storage пуст
         addTaskToLocalStorage()
-        clearFields()
     }
-    else {
-     
+    else { //если в ls есть список дел
         let todoListItem = {
             title: inputTitle.value,
             detail: inputDetail.value,
-            id: Math.random().toString(16).slice(2)
+            id: Math.random().toString(16).slice(2),
+            complete: false
         };
-    
-        storedData.push(todoListItem)
-        localStorage.setItem('todoList', JSON.stringify(storedData));
-        clearFields()
-        
+        storedData.push(todoListItem) //добавляем новое дело в конец списка дел в ls
+        localStorage.setItem('todoList', JSON.stringify(storedData)); 
     }
-    location.replace("../index.html");
+    location.replace("../index.html"); //переход на главную страницу
 })
 
 

@@ -34,6 +34,7 @@ time {
     font-weight: 600;
     text-align: left;
     color: rgba(255, 255, 255, 1);
+    cursor:default;
 }
 time {
     font-size: 15px;
@@ -59,6 +60,10 @@ main {
     border-radius: 15px;
     height: 82px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.todo-list-done {
+   background-color: rgb(233, 234, 240);
+   transition-delay: 500ms
 }
 .todo-title {
     display: flex;
@@ -87,6 +92,7 @@ span:last-of-type {
     height: 25px;
     border: none;
     border-radius: 50%;
+    cursor: pointer;
 }
 .todo-buttons > button:hover {
     box-shadow: 
@@ -104,6 +110,12 @@ a {
 .todo-done {
     background: white url(../assets/CheckCircle.png);
 }
+
+.todo-checked {
+    background: white url(../assets/Tick-Done.png);
+    transition-delay: 500ms
+}
+
 .todo-add {
     display: flex;
     justify-content: center;
@@ -118,6 +130,7 @@ a {
     color: white;
     font-size: 30px;
     border: none;
+    cursor: pointer;
 }
 .todo-add:hover {
     box-shadow: 
@@ -138,6 +151,7 @@ footer {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+    cursor: pointer;
 }
 p:hover {
     font-size: 15px;
@@ -159,6 +173,7 @@ p {
     border: none;
     border-radius: 50%;
     margin: 0 40px 0 0;
+    cursor: pointer;
 }
 .back-btn:hover {
     box-shadow: 
@@ -174,6 +189,7 @@ content {
 }
 textarea {
     border: none;
+    outline: none;
     border-bottom: 1px solid rgba(139, 135, 135, 1);
     font-family: Jost;
     font-size: 16px;
@@ -184,7 +200,7 @@ textarea {
 }
 
 textarea:hover {
-    border: 2px solid rgba(139, 135, 135, 1);
+    border-bottom: 3px solid rgb(105, 102, 102);
 }
 .edit-buttons {
     display: flex;
@@ -199,6 +215,7 @@ textarea:hover {
     border-radius: 15px;
     color: white;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
 }
 .update-button:hover,
 .cancel-button:hover {
@@ -217,6 +234,7 @@ textarea:hover {
     font-weight: 600;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     margin: 0 auto;
+    cursor: pointer;
 }
 .add-task-btn:hover {
     border: 2px solid rgb(170, 173, 249);
