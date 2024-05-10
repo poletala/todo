@@ -27,14 +27,20 @@
                 rows="1" 
                 maxlength="40" 
                 class="title-area" 
-                name="title-add">
-            </textarea>
+                name="title-add"
+                value=""></textarea>
             <textarea 
                 placeholder="Detail" 
                 rows="2" 
                 class="detail-area"
-                name="detail-add">
-            </textarea>
+                name="detail-add"
+                value=""></textarea>
+            <form class="priority">
+                <span>Priority</span>
+                <input type="radio" name="priority" value="low" checked> low
+                <input type="radio" name="priority" value="medium"> medium
+                <input type="radio" name="priority" value="high"> high
+            </form>
             <button 
                 class="add-task-btn" 
                 type="button">

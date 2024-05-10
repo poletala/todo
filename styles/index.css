@@ -44,6 +44,7 @@ main {
     background: rgb(196, 198, 238);
     height: 80%;
     position: relative;
+    overflow: auto;
 }
 #todo-bar {
     display: flex;
@@ -62,8 +63,18 @@ main {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 .todo-list-done {
-   background-color: rgb(233, 234, 240);
+   background-color: 	#dfd0f4;
    transition-delay: 500ms
+   
+}
+.todo-low {
+    border-left: 4px solid #72b5e6;
+}
+.todo-medium {
+    border-left: 4px solid #7073d1;
+}
+.todo-high {
+    border-left: 4px solid #643F9A;
 }
 .todo-title {
     display: flex;
@@ -120,8 +131,8 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    right: 20px;
+    position: sticky;
+    left: 75%;
     bottom: 20px;
     width: 70px;
     height: 70px;
@@ -139,6 +150,7 @@ a {
     transition: 0.7s;
 }
 footer {
+    position: sticky;
     height: 9%;
     background-color: white;
     display: flex;
@@ -201,6 +213,21 @@ textarea {
 
 textarea:hover {
     border-bottom: 3px solid rgb(105, 102, 102);
+}
+textarea:placeholder-shown {
+    border-bottom: 4px solid #7073d1;
+}
+.priority > span {
+    color: rgb(101, 102, 142);
+    font-family: Jost;
+    font-size: 16px;
+    font-weight: 400;
+}
+input * {
+    color: rgb(101, 102, 142);
+    font-family: Jost;
+    font-size: 16px;
+    font-weight: 400;
 }
 .edit-buttons {
     display: flex;

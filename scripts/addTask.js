@@ -25,16 +25,18 @@ let inputDetail = document.querySelector('.detail-area')
 
 /* Функции */
 
-//ф-ция проверки 
- //это только начало ф-ции проверки 
- // почему при пустом поле ф-ция возвращает true? 
+//ф-ция проверки полей 
+
 function checkInputs() {
-    if (inputTitle.value === '') {
-        alert ('Поле не должно быть пустым');
-        console.error('false') 
-    } else 
-    {
-        console.log('true') 
+    if (!inputTitle.value) {
+        inputTitle.placeholder = 'INVALID TITLE'
+        return false
+    } if (!inputDetail.value) {
+        inputDetail.placeholder = 'INVALID DETAILS'
+        return false
+    }
+    else {
+        return true
     }
 }
 
@@ -46,10 +48,11 @@ function addTaskToLocalStorage() {
         title: inputTitle.value,
         detail: inputDetail.value,
         id: Math.random().toString(16).slice(2),
-        complete: false
+        complete: false,
+        priority: document.querySelector('input[name="priority"]:checked').value
     }
     // console.log(todoListItem)
-
+    
     arrTasks.push(todoListItem)
 
     localStorage.setItem('todoList', JSON.stringify(arrTasks));
@@ -59,25 +62,31 @@ function addTaskToLocalStorage() {
 //ф-ция добавления дела в local storage при нажатии кнопки ADD
 
 addButton.addEventListener('click', () => {
-    checkInputs()
-    let storedData = JSON.parse(localStorage.getItem('todoList'));
-    if (storedData.length === 0) { //если local storage пуст
-        addTaskToLocalStorage()
+    if (checkInputs()) {
+        let storedData = JSON.parse(localStorage.getItem('todoList'));
+        if (!storedData) { //если local storage пуст
+            addTaskToLocalStorage()
+        }
+        else { //если в ls есть список дел
+            let todoListItem = {
+                title: inputTitle.value,
+                detail: inputDetail.value,
+                id: Math.random().toString(16).slice(2),
+                complete: false,
+                priority: document.querySelector('input[name="priority"]:checked').value
+            };
+            storedData.push(todoListItem) //добавляем новое дело в конец списка дел в ls
+            localStorage.setItem('todoList', JSON.stringify(storedData)); 
+        }
+        location.replace("../index.html"); //переход на главную страницу
+    } else {
+        return
     }
-    else { //если в ls есть список дел
-        let todoListItem = {
-            title: inputTitle.value,
-            detail: inputDetail.value,
-            id: Math.random().toString(16).slice(2),
-            complete: false
-        };
-        storedData.push(todoListItem) //добавляем новое дело в конец списка дел в ls
-        localStorage.setItem('todoList', JSON.stringify(storedData)); 
-    }
-    location.replace("../index.html"); //переход на главную страницу
+   
 })
 
-
+//приоритеты
+let radios = document.querySelectorAll('input[type="radio"]');
 
 
 

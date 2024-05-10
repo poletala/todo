@@ -25,7 +25,7 @@ function completedList() {
     let storedData = JSON.parse(localStorage.getItem('todoList'));
     if (storedData.length !== 0) { //при наличии данных в local st 
         for (let i=0; i< storedData.length;i++) {
-            if (storedData[i].complete === true) {  //при наличии выполненных заданий
+            if (storedData[i].complete) {  //при наличии выполненных заданий
                 let taskHTML = `<li class="todo-list" id='${storedData[i].id}'> 
                     <div class="todo-title">
                         <span class="title-area-main">${storedData[i].title}</span>

@@ -1,24 +1,8 @@
-/* Buttons */
-
+// кнопка удаления
 let deleteButton = document.querySelector('.todo-delete')  
 
 
-// console.log(storedData)
-
-//                                          Первая версия (Поиск задания через родителей элемента и его заголовка)
-// function deleteTask(elem) {
-//     console.log(elem.id)
-//     elem.parentNode.parentNode.remove();
-//     for (var i in storedData) {
-//         if (elem.parentNode.parentNode.children[0].children[0].innerHTML === storedData[i].title) {
-//             storedData.splice(i, 1);
-//             localStorage.setItem('todoList', JSON.stringify(storedData));
-//         }
-//     }
-// }
-
-//                                                ф-ция удаления элемента 
-//                                       Вторая версия (Поиск id через .closest)
+//   ф-ция удаления элемента 
 function deleteTask1(elem) {
     let storedData = JSON.parse(localStorage.getItem('todoList'))
     // console.log(elem.closest('.todo-list').id)
