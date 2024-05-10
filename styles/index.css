@@ -217,12 +217,18 @@ textarea:hover {
 textarea:placeholder-shown {
     border-bottom: 4px solid #7073d1;
 }
-.priority > span {
+.priority > span,
+.deadline > span {
     color: rgb(101, 102, 142);
     font-family: Jost;
     font-size: 16px;
     font-weight: 400;
 }
+input[type="date"] {
+     padding: 12px 16px; 
+     border: 1px solid #ccc; 
+     border-radius: 30px; 
+    } 
 input * {
     color: rgb(101, 102, 142);
     font-family: Jost;
