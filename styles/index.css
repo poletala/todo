@@ -88,11 +88,19 @@ span:first-of-type {
     text-align: left;
     color: rgba(147, 149, 211, 1);
 }
-span:last-of-type {
+.detail-area-main {
     font-size: 10px;
     font-weight: 400;
     text-align: left;
-    color: rgba(0, 0, 0, 1);
+    color: rgb(23, 24, 45);
+    text-wrap:wrap ;
+    word-break: break-all;
+}
+span:last-of-type {
+    font-size: 10px;
+    font-weight: 400;
+    color: rgba(147, 149, 211, 1);
+
 }
 .todo-buttons {
     display: flex;

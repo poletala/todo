@@ -21,7 +21,7 @@ getCurrentTimeDate(); //выполнение ф-ции, ктр отобража�
 let addButton = document.querySelector('.add-task-btn')
 let inputTitle = document.querySelector('.title-area')
 let inputDetail = document.querySelector('.detail-area')
-
+let deadlineInput = document.querySelector('#deadline-input')
 
 /* Функции */
 
@@ -40,6 +40,19 @@ function checkInputs() {
     }
 }
 
+// Ф-ция прослушивания инпута при установке дедлайна и передачи в local st
+
+deadlineInput.addEventListener("input", event => {
+    let date = new Date(event.target.value);
+    let dayDeadline = (date.getDate() < 10) ? '0'+date.getDate() : date.getDate()
+    let monthDeadline = (date.getMonth()+1 <10) ? '0'+(date.getMonth()+1) : date.getMonth()+1
+    let yearDeadline = date.getFullYear()
+    let deadline = `${dayDeadline}.${monthDeadline}.${yearDeadline}`
+    // console.log(deadline)
+    localStorage.setItem('deadline', JSON.stringify(deadline));
+});
+
+
 //ф-ция добавления первого дела в local storage 
 
 function addTaskToLocalStorage() {
@@ -49,7 +62,8 @@ function addTaskToLocalStorage() {
         detail: inputDetail.value,
         id: Math.random().toString(16).slice(2),
         complete: false,
-        priority: document.querySelector('input[name="priority"]:checked').value
+        priority: document.querySelector('input[name="priority"]:checked').value,
+        deadline: JSON.parse(localStorage.getItem('deadline'))
     }
     // console.log(todoListItem)
     
@@ -73,7 +87,8 @@ addButton.addEventListener('click', () => {
                 detail: inputDetail.value,
                 id: Math.random().toString(16).slice(2),
                 complete: false,
-                priority: document.querySelector('input[name="priority"]:checked').value
+                priority: document.querySelector('input[name="priority"]:checked').value,
+                deadline: JSON.parse(localStorage.getItem('deadline'))
             };
             storedData.push(todoListItem) //добавляем новое дело в конец списка дел в ls
             localStorage.setItem('todoList', JSON.stringify(storedData)); 
