@@ -30,11 +30,12 @@ function listMain() {
             let liClassPriority = (todoListTask[i].priority === 'low') ? 'todo-low' :
                 (todoListTask[i].priority === 'medium') ? 'todo-medium' :
                 (todoListTask[i].priority === 'high') ? 'todo-high' : '';
+            let liDeadline = (!todoListTask[i].deadline) ? 'has not been set' : todoListTask[i].deadline
             let taskHTML = `<li class="todo-list ${liClassComplete} ${liClassPriority}" id='${todoListTask[i].id}'>
                     <div class="todo-title">
                         <span class="title-area-main">${todoListTask[i].title}</span>
                         <span class="detail-area-main">${todoListTask[i].detail}</span>
-                        <span class='task-deadline'>deadline: ${todoListTask[i].deadline}</span>
+                        <span class='task-deadline'>deadline: ${liDeadline}</span>
                     </div>
                     <div class="todo-buttons">
                         <button class="todo-edit" onclick="editTask(this)" type="button"></button>

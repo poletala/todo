@@ -64,12 +64,14 @@ function addTaskToLocalStorage() {
         complete: false,
         priority: document.querySelector('input[name="priority"]:checked').value,
         deadline: JSON.parse(localStorage.getItem('deadline'))
+        
     }
     // console.log(todoListItem)
     
     arrTasks.push(todoListItem)
 
     localStorage.setItem('todoList', JSON.stringify(arrTasks));
+    localStorage.setItem('deadline', JSON.stringify(''))
     // console.log(arrTasks)
 }
 
@@ -92,6 +94,7 @@ addButton.addEventListener('click', () => {
             };
             storedData.push(todoListItem) //добавляем новое дело в конец списка дел в ls
             localStorage.setItem('todoList', JSON.stringify(storedData)); 
+            localStorage.setItem('deadline', JSON.stringify(''))
         }
         location.replace("../index.html"); //переход на главную страницу
     } else {

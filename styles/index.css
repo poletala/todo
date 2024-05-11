@@ -81,14 +81,12 @@ main {
     flex-direction: column;
     font-family: Jost;
     gap: 5px;
-    max-width: 65%;
+    max-width: 62%;
 }
 span:first-of-type {
     font-size: 13px;
     font-weight: 600;
     text-align: left;
-    text-wrap:wrap ;
-    word-break: break-all;
     color: rgba(147, 149, 211, 1);
 }
 .detail-area-main {
