@@ -1,9 +1,12 @@
 // Задаем время и дату
+
+import { month } from './constants.js';
+
 const getCurrentTimeDate = () => {
     let currentTimeDate = new Date();
-    let month =  ["Jan", "Feb", "Mar", "Apr", "May",  "Jun",  "Jul",  "Aug",  "Sep", "Oct", "Nov", "Dec"]
-    let hours   =  currentTimeDate.getHours();
-    let minutes =  currentTimeDate.getMinutes();
+    // let month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    let hours = currentTimeDate.getHours();
+    let minutes = currentTimeDate.getMinutes();
     minutes = minutes < 10 ? '0'+minutes : minutes;
     let currentTime = `${hours}:${minutes}`;
     let currentDate  = currentTimeDate.getDate();
@@ -24,7 +27,7 @@ let ul = document.querySelector('#todo-bar')
 function listMain() {
     let todoListTask = JSON.parse(localStorage.getItem('todoList'))
     if (todoListTask.length !== 0) { //при наличии данных в local st
-         for (let i=0; i< todoListTask.length;i++) {
+         for (let i = 0; i < todoListTask.length; i++) {
                 //задаем стиль блока задания при условии complete & priority
             let liClassComplete = (todoListTask[i].complete) ? 'todo-list-done' : '';
             let liClassPriority = (todoListTask[i].priority === 'low') ? 'todo-low' :

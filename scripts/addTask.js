@@ -60,7 +60,7 @@ function addTaskToLocalStorage() {
     let todoListItem = {
         title: inputTitle.value,
         detail: inputDetail.value,
-        id: Math.random().toString(16).slice(2),
+        id: Date.now(),
         complete: false,
         priority: document.querySelector('input[name="priority"]:checked').value,
         deadline: JSON.parse(localStorage.getItem('deadline'))
@@ -87,7 +87,7 @@ addButton.addEventListener('click', () => {
             let todoListItem = {
                 title: inputTitle.value,
                 detail: inputDetail.value,
-                id: Math.random().toString(16).slice(2),
+                id: Date.now(),
                 complete: false,
                 priority: document.querySelector('input[name="priority"]:checked').value,
                 deadline: JSON.parse(localStorage.getItem('deadline'))

@@ -46,6 +46,9 @@ main {
     position: relative;
     overflow: auto;
 }
+.completedTasks-main {
+    height: 100vh;
+}
 #todo-bar {
     display: flex;
     flex-direction: column;
@@ -140,9 +143,9 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: sticky;
-    left: 75%;
-    bottom: 20px;
+    position: absolute;
+    right: 6%;
+    bottom: 3%;
     width: 70px;
     height: 70px;
     border-radius: 50%;
