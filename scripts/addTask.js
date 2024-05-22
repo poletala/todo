@@ -30,9 +30,11 @@ let deadlineInput = document.querySelector('#deadline-input')
 function checkInputs() {
     if (!inputTitle.value) {
         inputTitle.placeholder = 'INVALID TITLE'
+        alert('The title field is empty.')
         return false
     } if (!inputDetail.value) {
         inputDetail.placeholder = 'INVALID DETAILS'
+        alert ('The details field is empty.')
         return false
     }
     else {
