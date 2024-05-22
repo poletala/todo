@@ -45,6 +45,18 @@ main {
     height: 80%;
     position: relative;
     overflow: auto;
+    
+}
+main::-webkit-scrollbar {
+    width: 12px;               /* ширина всей полосы прокрутки */
+}
+main::-webkit-scrollbar-track {
+    background: rgb(196, 198, 238);        /* цвет зоны отслеживания */
+}
+main::-webkit-scrollbar-thumb {
+    background-color: rgba(147, 149, 211, 1);    /* цвет бегунка */
+    border-radius: 20px;       /* округлось бегунка */
+    border: 3px solid rgb(196, 198, 238);  /* отступ вокруг бегунка */
 }
 #todo-bar {
     display: flex;
@@ -81,12 +93,14 @@ main {
     flex-direction: column;
     font-family: Jost;
     gap: 5px;
+    width: 66%;
 }
 span:first-of-type {
     font-size: 13px;
     font-weight: 600;
     text-align: left;
     color: rgba(147, 149, 211, 1);
+    text-wrap:nowrap;
 }
 .detail-area-main {
     font-size: 10px;
@@ -105,6 +119,7 @@ span:last-of-type {
 .todo-buttons {
     display: flex;
     gap: 20px;
+    margin-top: 20px;
 }
 .todo-buttons > button {
     width: 25px;
@@ -150,6 +165,7 @@ a {
     font-size: 30px;
     border: none;
     cursor: pointer;
+    margin-top: 10px;
 }
 .todo-add:hover {
     box-shadow: 
@@ -283,4 +299,19 @@ input * {
 }
 ul {
     padding-left: 0;
+}
+#sort-select {
+    border: none;
+    border-radius: 0 0 5px 5px;
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    background-color: rgba(147, 149, 211, 1);
+    font-family: Jost;
+    color: white;
+    cursor: pointer;
+    padding: 0 5px 5px 5px;
+}
+main > form {
+    margin-bottom: 15px;
 }

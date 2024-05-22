@@ -15,6 +15,14 @@
             <h1>TODO APP</h1>
         </header>
         <main>
+            <form>
+                <label for="sort-by"></label>
+                <select name="sort" id="sort-select" onclick="GetSelectedItem()">
+                  <option selected value="">sort by</option>
+                  <option value="deadline">deadline</option>
+                  <option value="priority">priority</option>
+                </select>
+              </form>
             <ul id="todo-bar">
             </ul>
             <button 
@@ -40,4 +48,5 @@
 <script src="./scripts/deleteTask.js"></script>
 <script src="./scripts/editTask.js"></script>
 <script src="./scripts/doneTasks.js"></script>
+<script src="./scripts/sortedBy.js"></script>
 </html>
