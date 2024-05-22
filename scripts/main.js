@@ -52,3 +52,38 @@ function listMain() {
 
 window.onload = listMain //при загрузке страницы выполняется ф-ция listMain
 
+
+/* ф-ция сохранения id задания в local storage и переброса на страницу редактирования*/
+function editTask(elem) {
+    const elemID = elem.closest('.todo-list').id;
+    localStorage.setItem('idEdit', JSON.stringify(elemID));
+    location.replace("./pages/edit.html"); 
+}
+
+
+
+console.log( document.getElementsByClassName('todo-list-done'))
+
+function taskBTN() {
+    isAllTasks = true
+    isUncompletedTasks = false
+    if (isAllTasks) {
+        document.querySelector('.todo-all > p').textContent = 'All'
+        for (i in document.getElementsByClassName('todo-list-done')) { //прячем все выполненные дела
+            document.getElementsByClassName('todo-list-done')[i].style.display = 'none' 
+        }
+        isAllTasks = false
+        isUncompletedTasks = true
+        return
+    }
+    if (isUncompletedTasks) {
+        document.querySelector('.todo-all > p').textContent = 'Unfinished'
+        for (i in document.getElementsByClassName('todo-list-done')) { 
+            // document.getElementsByClassName('todo-list-done')[i].removeAttr("style")
+        }
+        isAllTasks = true
+        isUncompletedTasks = false
+        return
+    }
+    return
+}

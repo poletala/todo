@@ -35,8 +35,18 @@
                 class="edited-detail"
                 name="detail-edit"
                 value=""></textarea>
+            <form class="priority">
+                <span>Priority</span>
+                <input type="radio" name="priority" value="3low" checked> low
+                <input type="radio" name="priority" value="2medium"> medium
+                <input type="radio" name="priority" value="1high"> high
+            </form>
+            <form class="deadline">
+                <span>Deadline</span>
+                <input type="date" id="deadline-input">
+            </form>
             <div class="edit-buttons">
-                <button class="update-button" onclick="updateTask()" type="button">
+                <button class="update-button" onclick="updateTask2()" type="button">
                     Update
                 </button>
                 <button class="cancel-button" onclick="location.href='../index.html'" type="button">
