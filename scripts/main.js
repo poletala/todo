@@ -62,15 +62,20 @@ function editTask(elem) {
 
 
 
-console.log( document.getElementsByClassName('todo-list-done'))
+
+
+
+let isAllTasks = true
+let isUncompletedTasks = false
+let doneTasks = document.getElementsByClassName('todo-list-done')
+console.log(doneTasks)
 
 function taskBTN() {
-    isAllTasks = true
-    isUncompletedTasks = false
+   
     if (isAllTasks) {
         document.querySelector('.todo-all > p').textContent = 'All'
-        for (i in document.getElementsByClassName('todo-list-done')) { //прячем все выполненные дела
-            document.getElementsByClassName('todo-list-done')[i].style.display = 'none' 
+        for (let i = 0; i < doneTasks.length; i++) { //прячем все выполненные дела
+            doneTasks[i].style.display = 'none' 
         }
         isAllTasks = false
         isUncompletedTasks = true
@@ -78,8 +83,8 @@ function taskBTN() {
     }
     if (isUncompletedTasks) {
         document.querySelector('.todo-all > p').textContent = 'Unfinished'
-        for (i in document.getElementsByClassName('todo-list-done')) { 
-            // document.getElementsByClassName('todo-list-done')[i].removeAttr("style")
+        for (let i = 0; i < doneTasks.length; i++) { 
+            doneTasks[i].style.display = '' 
         }
         isAllTasks = true
         isUncompletedTasks = false
