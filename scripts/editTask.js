@@ -33,7 +33,8 @@ for (i in dataStored) {
     editedTitle.value = dataStored[i].title
     editedDetail.value = dataStored[i].detail 
     let deadlineNewFormat = dataStored[i].deadline.split("."); //изменяем формат даты и вставляем в поле дедлайна
-    editedDeadline.valueAsDate = new Date(deadlineNewFormat[2] + '/' + deadlineNewFormat[1] + '/' + deadlineNewFormat[0]) //ДЕНЬ!
+    editedDeadline.valueAsDate =  new Date(deadlineNewFormat[2] + '-' + deadlineNewFormat[1] + '-' + deadlineNewFormat[0] ) 
+    console.log( new Date(deadlineNewFormat[2] + '-' + deadlineNewFormat[1] + '-' + deadlineNewFormat[0] ) )//ДЕНЬ!
     localStorage.setItem('deadline', JSON.stringify(dataStored[i].deadline)); //передаем в local storage текущий дедлайн на случай, если не будет задан новый
     for (j in editedPriority) {
       if (editedPriority[j].value === dataStored[i].priority) {
@@ -55,7 +56,7 @@ function checkInputs() {
       return false
   }
   else {
-      return true
+    return true
   }
 }
 

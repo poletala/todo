@@ -79,13 +79,13 @@ main::-webkit-scrollbar-thumb {
    transition-delay: 500ms
    
 }
-.todo-low {
+.todo3-low {
     border-left: 4px solid #72b5e6;
 }
-.todo-medium {
+.todo2-medium {
     border-left: 4px solid #7073d1;
 }
-.todo-high {
+.todo1-high {
     border-left: 4px solid #643F9A;
 }
 .todo-title {

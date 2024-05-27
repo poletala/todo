@@ -27,9 +27,9 @@ function listMain() {
          for (let i=0; i< todoListTask.length;i++) {
                 //задаем стиль блока задания при условии complete & priority
             let liClassComplete = (todoListTask[i].complete) ? 'todo-list-done' : '';
-            let liClassPriority = (todoListTask[i].priority === '3low') ? 'todo-low' :
-                (todoListTask[i].priority === '2medium') ? 'todo-medium' :
-                (todoListTask[i].priority === '1high') ? 'todo-high' : '';
+            let liClassPriority = (todoListTask[i].priority === '3low') ? 'todo3-low' :
+                (todoListTask[i].priority === '2medium') ? 'todo2-medium' :
+                (todoListTask[i].priority === '1high') ? 'todo1-high' : '';
             let liDeadline = (!todoListTask[i].deadline) ? 'has not been set' : todoListTask[i].deadline
             let taskHTML = `<li class="todo-list ${liClassComplete} ${liClassPriority}" id='${todoListTask[i].id}'>
                     <div class="todo-title">
