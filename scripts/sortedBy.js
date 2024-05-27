@@ -16,7 +16,7 @@ function sortTasks() {
         }) 
         arrTodoList.reverse(); //changing the order of just sorted tasks
         for(var i=0; i<arrTodoList.length; i++){
-            ulTodo.insertBefore(arrTodoList[i], ulTodo.firstChild); //showing the new order not changing the data in local store
+            ulTodo.insertBefore(arrTodoList[i], ulTodo.firstChild); //showing the new order not changing the data in local storage
         }
         return
     }
@@ -28,7 +28,7 @@ function sortTasks() {
     })
     arrTodoList.reverse(); //changing the order of just sorted tasks
         for(var i=0; i<arrTodoList.length; i++){
-            ulTodo.insertBefore(arrTodoList[i], ulTodo.firstChild); //showing the new order not changing the data in local store
+            ulTodo.insertBefore(arrTodoList[i], ulTodo.firstChild); //showing the new order not changing the data in local storage
         }
         return
     }
